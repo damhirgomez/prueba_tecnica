@@ -73,9 +73,6 @@ curl "http://localhost:8000/api/elements/?average_before_min=50&average_before_m
 ## Pruebas
 
 ```bash
-# Demostración completa
-python3 run_demo.py
-
 # Pruebas automáticas
 python3 test_api.py
 ```
