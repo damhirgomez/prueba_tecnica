@@ -1,0 +1,52 @@
+2025-07-05 23:25:02,904 - utils - INFO - REQUEST: GET http://localhost:8000/
+2025-07-05 23:25:02,905 - utils - INFO - RESPONSE: 200 - 0.001s
+2025-07-05 23:25:17,039 - utils - INFO - REQUEST: POST http://localhost:8000/api/elements/
+2025-07-05 23:25:17,053 - utils - INFO - Nuevo dispositivo creado: CT SCAN
+2025-07-05 23:25:17,058 - utils - INFO - Datos médicos creados con ID: aabbcc1
+2025-07-05 23:25:17,060 - utils - INFO - Datos médicos creados con ID: aabbcc2
+2025-07-05 23:25:17,062 - utils - INFO - Nuevo dispositivo creado: MRI SCANNER
+2025-07-05 23:25:17,063 - utils - INFO - Datos médicos creados con ID: aabbcc3
+2025-07-05 23:25:17,063 - utils - INFO - Elementos creados exitosamente: 3
+2025-07-05 23:25:17,066 - utils - INFO - RESPONSE: 200 - 0.027s
+2025-07-05 23:25:30,990 - utils - INFO - REQUEST: GET http://localhost:8000/api/elements/
+2025-07-05 23:25:30,994 - utils - INFO - Elementos obtenidos: 3
+2025-07-05 23:25:30,996 - utils - INFO - RESPONSE: 200 - 0.006s
+2025-07-05 23:25:42,229 - utils - INFO - REQUEST: GET http://localhost:8000/api/elements/?average_before_min=50&average_before_max=70
+2025-07-05 23:25:42,234 - utils - INFO - Elementos obtenidos: 3
+2025-07-05 23:25:42,237 - utils - INFO - RESPONSE: 200 - 0.007s
+2025-07-05 23:25:57,943 - utils - INFO - REQUEST: GET http://localhost:8000/docs
+2025-07-05 23:25:57,944 - utils - INFO - RESPONSE: 200 - 0.001s
+2025-07-05 23:26:28,006 - utils - INFO - REQUEST: GET http://localhost:8000/
+2025-07-05 23:26:28,007 - utils - INFO - RESPONSE: 200 - 0.001s
+2025-07-05 23:26:28,016 - utils - INFO - REQUEST: POST http://localhost:8000/api/elements/
+2025-07-05 23:26:28,021 - utils - ERROR - Error creando datos médicos: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "medical_image_data_pkey"
+DETAIL:  Key (id)=(aabbcc1) already exists.
+
+[SQL: INSERT INTO medical_image_data (id, device_id, average_before_normalization, average_after_normalization, data_size, original_data, normalized_data, updated_date) VALUES (%(id)s, %(device_id)s, %(average_before_normalization)s, %(average_after_normalization)s, %(data_size)s, %(original_data)s, %(normalized_data)s, %(updated_date)s) RETURNING medical_image_data.created_date]
+[parameters: {'id': 'aabbcc1', 'device_id': 1, 'average_before_normalization': 51.13333333333333, 'average_after_normalization': 0.5326388888888889, 'data_size': 30, 'original_data': '["78 83 21 68 96 46 40 11 1 88", "58 75 71 69 33 14 15 93 18 54", "46 54 73 63 85 4 30 76 15 56"]', 'normalized_data': '[[0.8125, 0.8645833333333334, 0.21875, 0.7083333333333334, 1.0, 0.4791666666666667, 0.4166666666666667, 0.11458333333333333, 0.010416666666666666, 0. ... (151 characters truncated) ... 66666666667, 0.5625, 0.7604166666666666, 0.65625, 0.8854166666666666, 0.041666666666666664, 0.3125, 0.7916666666666666, 0.15625, 0.5833333333333334]]', 'updated_date': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-05 23:26:28,021 - utils - ERROR - Error procesando elemento 1: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "medical_image_data_pkey"
+DETAIL:  Key (id)=(aabbcc1) already exists.
+
+[SQL: INSERT INTO medical_image_data (id, device_id, average_before_normalization, average_after_normalization, data_size, original_data, normalized_data, updated_date) VALUES (%(id)s, %(device_id)s, %(average_before_normalization)s, %(average_after_normalization)s, %(data_size)s, %(original_data)s, %(normalized_data)s, %(updated_date)s) RETURNING medical_image_data.created_date]
+[parameters: {'id': 'aabbcc1', 'device_id': 1, 'average_before_normalization': 51.13333333333333, 'average_after_normalization': 0.5326388888888889, 'data_size': 30, 'original_data': '["78 83 21 68 96 46 40 11 1 88", "58 75 71 69 33 14 15 93 18 54", "46 54 73 63 85 4 30 76 15 56"]', 'normalized_data': '[[0.8125, 0.8645833333333334, 0.21875, 0.7083333333333334, 1.0, 0.4791666666666667, 0.4166666666666667, 0.11458333333333333, 0.010416666666666666, 0. ... (151 characters truncated) ... 66666666667, 0.5625, 0.7604166666666666, 0.65625, 0.8854166666666666, 0.041666666666666664, 0.3125, 0.7916666666666666, 0.15625, 0.5833333333333334]]', 'updated_date': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-05 23:26:28,022 - utils - INFO - RESPONSE: 400 - 0.005s
+2025-07-05 23:26:28,528 - utils - INFO - REQUEST: GET http://localhost:8000/api/elements/
+2025-07-05 23:26:28,531 - utils - INFO - Elementos obtenidos: 3
+2025-07-05 23:26:28,533 - utils - INFO - RESPONSE: 200 - 0.006s
+2025-07-05 23:26:29,041 - utils - INFO - REQUEST: GET http://localhost:8000/api/elements/aabbcc1
+2025-07-05 23:26:29,043 - utils - INFO - Elemento obtenido: aabbcc1
+2025-07-05 23:26:29,044 - utils - INFO - RESPONSE: 200 - 0.003s
+2025-07-05 23:26:29,551 - utils - INFO - REQUEST: PUT http://localhost:8000/api/elements/aabbcc1
+2025-07-05 23:26:29,560 - utils - INFO - Nuevo dispositivo creado: CT SCAN UPDATED
+2025-07-05 23:26:29,566 - utils - INFO - Datos médicos actualizados: aabbcc1
+2025-07-05 23:26:29,566 - utils - INFO - Elemento actualizado: aabbcc1
+2025-07-05 23:26:29,567 - utils - INFO - RESPONSE: 200 - 0.016s
+2025-07-05 23:26:30,077 - utils - INFO - REQUEST: GET http://localhost:8000/api/elements/?average_before_min=50&average_before_max=70
+2025-07-05 23:26:30,082 - utils - INFO - Elementos obtenidos: 3
+2025-07-05 23:26:30,085 - utils - INFO - RESPONSE: 200 - 0.008s
+2025-07-05 23:26:30,594 - utils - INFO - REQUEST: DELETE http://localhost:8000/api/elements/aabbcc2
+2025-07-05 23:26:30,598 - utils - INFO - Datos médicos eliminados: aabbcc2
+2025-07-05 23:26:30,598 - utils - INFO - Elemento eliminado: aabbcc2
+2025-07-05 23:26:30,598 - utils - INFO - RESPONSE: 200 - 0.004s
